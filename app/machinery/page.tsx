@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IMG, PageHero, FeatureTiles, ServiceDetail, CtaBand } from "@/components/ui";
+import SanhitaProject from "./SanhitaProject";
 
 export const metadata: Metadata = { title: "Machinery & Plant Solutions" };
 
@@ -28,6 +29,7 @@ export default function MachineryPage() {
         ]}
         audience={["Factories", "Investors & new entrepreneurs", "Food processing units", "Biomass & bioenergy projects"]}
       />
+      <SanhitaProject />
       <CtaBand />
     </>
   );

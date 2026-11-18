@@ -53,3 +53,40 @@ body {
   opacity: 0.08;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
+
+/* ---------- Header animations ---------- */
+@keyframes header-enter { from { transform: translateY(-100%); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes fade-down { from { transform: translateY(-12px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes fade-up { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes menu-drop { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes phone-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgb(198 239 60 / 0.55); }
+  50% { box-shadow: 0 0 0 9px rgb(198 239 60 / 0); }
+}
+.header-enter { animation: header-enter 0.7s cubic-bezier(.2,.8,.2,1) both; }
+.fade-down { animation: fade-down 0.6s cubic-bezier(.2,.8,.2,1) both; }
+.fade-up { animation: fade-up 0.5s cubic-bezier(.2,.8,.2,1) both; }
+.menu-drop { animation: menu-drop 0.45s cubic-bezier(.2,.8,.2,1) both; }
+.phone-pulse { animation: phone-pulse 2.6s ease-out 1.5s infinite; }
+.phone-pulse:hover { transform: translateY(-2px); }
+
+/* ---------- Footer animations ---------- */
+
+.reveal-word, .reveal-item {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(.2,.8,.2,1);
+}
+.reveal-item { display: block; }
+.is-visible .reveal-word, .is-visible .reveal-item { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .header-enter, .fade-down, .fade-up, .menu-drop, .phone-pulse { animation: none; }
+  .reveal-word, .reveal-item { opacity: 1; transform: none; transition: none; }
+}
+
+/* Gujarati script */
+.font-gu {
+  font-family: var(--font-gujarati), var(--font-manrope), system-ui, sans-serif;
+}
